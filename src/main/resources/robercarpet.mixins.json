@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.rober.robercarpet.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+    "FarmableClayMixin",
+    "SleepingDelayMixin",
+    "ThunderWarnMixin"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
