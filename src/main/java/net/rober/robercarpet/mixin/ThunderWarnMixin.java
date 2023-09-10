@@ -1,19 +1,13 @@
 package net.rober.robercarpet.mixin;
 
-import net.minecraft.network.MessageType;
-import net.minecraft.server.MinecraftServer;
+
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.world.MutableWorldProperties;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldProperties;
 import net.minecraft.world.level.ServerWorldProperties;
 import net.rober.robercarpet.RoberCarpetSettings;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.gen.Accessor;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -29,7 +23,7 @@ public abstract class ThunderWarnMixin {
             ServerWorld server = (ServerWorld) (Object) this;
             if((willBeThunderstorm(RoberCarpetSettings.ThunderWarn,worldProperties))){
                 for (ServerPlayerEntity player : server.getPlayers()){
-                    player.sendMessage(new LiteralText("A storm will begin in "+RoberCarpetSettings.ThunderWarn/60+" minutes"), MessageType.CHAT,player.getUuid());
+                    player.sendMessage(Text.of("A storm will begin in " + RoberCarpetSettings.ThunderWarn / 60 + " minutes"), true);
                 }
             }
         }
