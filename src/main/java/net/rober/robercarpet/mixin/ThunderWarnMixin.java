@@ -23,7 +23,7 @@ public abstract class ThunderWarnMixin {
             ServerWorld server = (ServerWorld) (Object) this;
             if((willBeThunderstorm(RoberCarpetSettings.ThunderWarn,worldProperties))){
                 for (ServerPlayerEntity player : server.getPlayers()){
-                    player.sendMessage(Text.of("A storm will begin in " + RoberCarpetSettings.ThunderWarn / 60 + " minutes"), true);
+                    player.sendMessage(Text.of("A storm will begin in " + RoberCarpetSettings.ThunderWarn / 1200 + " minutes"), false);
                 }
             }
         }
