@@ -4,7 +4,6 @@
   "package": "net.rober.robercarpet.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
-    "FarmableClayMixin",
     "SleepingDelayMixin",
     "ThunderWarnMixin"
   ],
