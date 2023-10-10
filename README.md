@@ -1,9 +1,25 @@
-# Fabric Example Mod
+# Rober-Carpet
+A carpet extension made by Rob3r8
+Initialy made for having the 1.19 clay mechanic in 1.17 for my survival, but then continued for other rules
+# Rober Carpet Rules
 
-## Setup
+### farmableClay
+Lets dispensers convert dirt into clay with water bottles
+* Type: `boolean`
+* Default value: `false`
+* Required options: `true`, `false`
+* Categories: `rober`, `dispenser`
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+### sleeping delay
 
-## License
+Sets the game-ticks of delay when you sleep in a bed (Vanilla is 100)
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+* Type: `integer`
+* Default value: `100` (Vanilla)
+* Categories: `rober`
+
+### thunderWarn
+The amount of ticks before thunderstorm that are needed for the server to warn you about it (-1 for no warning)
+* Type: `integer`
+* Default value: `0` (Doesn't alert)
+* Categories: `rober`
