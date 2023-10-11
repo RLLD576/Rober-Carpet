@@ -1,6 +1,8 @@
 # Rober-Carpet
 A carpet extension made by Rob3r8
 Initialy made for having the 1.19 clay mechanic in 1.17 for my survival, but then continued for other rules
+
+Maintaned versions: `1.17.1` , `1.18.2` and `1.19.2`
 # Rober Carpet Rules
 
 ### farmableClay
