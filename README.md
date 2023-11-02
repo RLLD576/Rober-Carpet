@@ -23,3 +23,23 @@ The amount of ticks before thunderstorm that are needed for the server to warn y
 * Type: `integer`
 * Default value: `0` (Doesn't alert)
 * Categories: `rober`
+
+### OldFallingBehavior
+Reintroduce the 1.12 falling block behavior with walls
+* Type: `boolean`
+* Default value: `0`
+* Required options: `true`,`false`
+* Categories: `rober`,`falling-block`
+
+### FallingBlockDieAge
+Age in gameticks at which falling blocks die, -1 for infinity.
+* Type: `integer`
+* Default value: `600` (Vanilla)
+* Categories: `rober`,`falling-block`
+* 
+### FallingBlockNoFrictionWithWalls
+Falling blocks over walls would not have friction with the floor as in 1.12
+* Type: `boolean`
+* Default value: `false`
+* Required options: `true`,`false`
+* Categories: `rober`,`falling-block`
