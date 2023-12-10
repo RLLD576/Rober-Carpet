@@ -4,6 +4,7 @@ import carpet.CarpetExtension;
 import carpet.CarpetServer;
 import carpet.settings.SettingsManager;
 import net.fabricmc.api.ModInitializer;
+import net.rober.robercarpet.register.dispenser.FarmableClayBehavior;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -18,9 +19,7 @@ public class RoberCarpet implements ModInitializer, CarpetExtension {
 
 	@Override
 	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
+		FarmableClayBehavior.init();
 		RoberCarpet extension = new RoberCarpet();
 		CarpetServer.manageExtension(extension);
 	}
