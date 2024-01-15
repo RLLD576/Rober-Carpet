@@ -20,4 +20,7 @@ public class RoberCarpetSettings {
 
     @Rule(desc="Falling blocks over walls would not have friction with the floor as in 1.12",category = {"rober","falling-block"})
     public static boolean FallingBlockNoFrictionWithWalls = false;
+
+    @Rule(desc="If using keep inventory gamerule, the player xp wil be reset on death (vanilla if keep inventory off)",category = "rober")
+    public static boolean KeepInventoryResetXP = false;
 }

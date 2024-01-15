@@ -6,7 +6,8 @@
   "mixins": [
     "FallingBlockMixin",
     "SleepingDelayMixin",
-    "ThunderWarnMixin"
+    "ThunderWarnMixin",
+    "KeepInventoryMixin"
   ],
   "client": [],
   "injectors": {
