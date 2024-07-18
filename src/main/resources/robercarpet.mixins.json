@@ -7,7 +7,8 @@
     "FallingBlockMixin",
     "SleepingDelayMixin",
     "ThunderWarnMixin",
-    "KeepInventoryMixin"
+    "KeepInventoryMixin",
+    "SleepInBedSetRespawnMixin"
   ],
   "client": [],
   "injectors": {

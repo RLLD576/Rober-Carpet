@@ -1,6 +1,11 @@
 package net.rober.robercarpet;
 
+import carpet.settings.ParsedRule;
 import carpet.settings.Rule;
+import carpet.settings.Validator;
+import net.minecraft.server.command.ServerCommandSource;
+
+import java.util.Arrays;
 
 public class RoberCarpetSettings {
     @Rule(desc="Lets dispensers convert dirt into clay with water bottles", category = {"dispenser", "rober"})
@@ -23,4 +28,23 @@ public class RoberCarpetSettings {
 
     @Rule(desc="If using keep inventory gamerule, the player xp wil be reset on death (vanilla if keep inventory off)",category = "rober")
     public static boolean KeepInventoryResetXP = false;
+
+    @Rule(desc="Send feedback to the player of the action of the rule SleepInBedSetRespawn", category = "rober")
+    public static boolean SendSetRespawnFeedback = false;
+
+    private static final String[] SleepInBedSetRespawnOptions = new String[] { "always","never", "sneaking", "no-sneaking" };
+    @Rule(desc="Sleeping you will only set respawn when trying to sleeping in a bed",category ="rober",options = {"never", "sneaking", "no-sneaking", "always"},validate = {SleepInBedSetRespawnValidator.class})
+    public static String SleepInBedSetRespawn = "always";
+    private static class SleepInBedSetRespawnValidator extends Validator<String> {
+        @Override
+        public String validate(ServerCommandSource serverCommandSource, ParsedRule<String> parsedRule, String s, String s2){
+            if((serverCommandSource == null || parsedRule.get().equals(s))&& Arrays.asList(SleepInBedSetRespawnOptions).contains(s)){
+                SleepInBedSetRespawn = s;
+                return s;
+            }
+            return "never";
+        }
+    }
+
+
 }
