@@ -2,7 +2,7 @@
 A carpet extension made by Rob3r8
 Initialy made for having the 1.19 clay mechanic in 1.17 for my survival, but then continued for other rules
 
-Maintaned versions: `1.17.1` , `1.18.2` and `1.19.2`
+Maintaned versions: `1.17.1` , `1.18.2`,  `1.19.4`, `1.20.6`, `1.21`
 
 If you have any request, go to the pinned issue and comment, for regular issues, just create another one
 
@@ -32,8 +32,7 @@ The amount of ticks before thunderstorm that are needed for the server to warn y
 ### OldFallingBehavior
 Reintroduce the 1.12 falling block behavior with walls
 * Type: `boolean`
-* Default value: `0`
-* Required options: `true`,`false`
+* Default value: `false`
 * Categories: `rober`,`falling-block`
 
 ### FallingBlockDieAge
@@ -46,5 +45,11 @@ Age in gameticks at which falling blocks die, -1 for infinity.
 Falling blocks over walls would not have friction with the floor as in 1.12
 * Type: `boolean`
 * Default value: `false`
-* Required options: `true`,`false`
 * Categories: `rober`,`falling-block`
+
+### SleepInBedSetsRespawn
+Sleeping you will only set respawn when trying to sleep in a bed
+* Type: `string`
+* Default value: `always`
+* Opitons: `always`, `never`, `sneaking`, `no-sneaking`
+* Categories: `rober`

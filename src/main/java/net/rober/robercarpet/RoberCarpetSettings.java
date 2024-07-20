@@ -32,14 +32,14 @@ public class RoberCarpetSettings {
     @Rule(desc="Send feedback to the player of the action of the rule SleepInBedSetRespawn", category = "rober")
     public static boolean SendSetRespawnFeedback = false;
 
-    private static final String[] SleepInBedSetRespawnOptions = new String[] { "always","never", "sneaking", "no-sneaking" };
-    @Rule(desc="Sleeping you will only set respawn when trying to sleeping in a bed",category ="rober",options = {"never", "sneaking", "no-sneaking", "always"},validate = {SleepInBedSetRespawnValidator.class})
-    public static String SleepInBedSetRespawn = "always";
+    private static final String[] SleepInBedSetsRespawnOptions = new String[] { "always","never", "sneaking", "no-sneaking" };
+    @Rule(desc="Sleeping you will only set respawn when trying to sleep in a bed",category ="rober",options = {"never", "sneaking", "no-sneaking", "always"},validate = {SleepInBedSetRespawnValidator.class})
+    public static String SleepInBedSetsRespawn = "always";
     private static class SleepInBedSetRespawnValidator extends Validator<String> {
         @Override
         public String validate(ServerCommandSource serverCommandSource, ParsedRule<String> parsedRule, String s, String s2){
-            if((serverCommandSource == null || parsedRule.get().equals(s))&& Arrays.asList(SleepInBedSetRespawnOptions).contains(s)){
-                SleepInBedSetRespawn = s;
+            if((serverCommandSource == null || parsedRule.get().equals(s))&& Arrays.asList(SleepInBedSetsRespawnOptions).contains(s)){
+                SleepInBedSetsRespawn = s;
                 return s;
             }
             return "never";
