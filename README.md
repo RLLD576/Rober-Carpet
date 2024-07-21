@@ -2,7 +2,8 @@
 A carpet extension made by Rob3r8
 Initialy made for having the 1.19 clay mechanic in 1.17 for my survival, but then continued for other rules
 
-Maintaned versions: `1.17.1` , `1.18.2`,  `1.19.4`, `1.20.6`, `1.21`
+Maintaned versions: `1.17.1` , `1.18.2`,  `1.19.4`, `1.20.6`, `1.21`  
+In order to maintain all the versions in a single branch, the [Stonecutter](https://stonecutter.kikugie.dev/) gradle plugin is used (similar to preprocessor)
 
 If you have any request, go to the pinned issue and comment, for regular issues, just create another one
 
