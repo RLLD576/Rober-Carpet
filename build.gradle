@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.4-SNAPSHOT'
+	id 'fabric-loom' version '1.6-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -20,11 +20,11 @@ repositories {
 }
 
 dependencies {
-	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-	modImplementation "carpet:fabric-carpet:${project.minecraft_version}-${project.carpet_core_version}"
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	minecraft("com.mojang:minecraft:${property("deps.minecraft")}")
+	mappings("net.fabricmc:yarn:${property("deps.yarn_mappings")}:v2")
+	modImplementation("net.fabricmc:fabric-loader:${property("deps.fabric_loader")}")
+	modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric_api")}")
+	modImplementation "carpet:fabric-carpet:${property("deps.minecraft")}-${property("carpet_core_version")}"
 }
 
 processResources {
@@ -67,5 +67,18 @@ publishing {
 		// Notice: This block does NOT have the same function as the block in the top level.
 		// The repositories here will be used for publishing your artifact, not for
 		// retrieving dependencies.
+	}
+}
+
+loom {
+	runConfigs.all {
+		ideConfigGenerated(true) // Run configurations are not created for subprojects by default
+		runDir = "../../run" // Use a shared run folder and just create separate worlds
+	}
+}
+if (stonecutter.current.isActive) {
+	rootProject.tasks.register("buildActive") {
+		group = "project"
+		dependsOn(tasks.named("build"))
 	}
 }
