@@ -15,17 +15,29 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(FallingBlockEntity.class)
 public abstract class FallingBlockMixin {
-    @Redirect(method = "tick()V",at=@At(value="INVOKE",target="Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z",ordinal = 1))
+    //? if =1.17 {
+    /*@Redirect(method = "tick()V",at=@At(value="INVOKE",target="Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z",ordinal = 1))
+     *///?} else {
+    @Redirect(method = "tick()V",at=@At(value="INVOKE",target="Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z",ordinal = 0))
+    //?}
     private boolean FallingBlockBehaviorMixin(BlockState blockHitResult, Block arg){
         FallingBlockEntity self = (FallingBlockEntity) (Object) this;
-        BlockPos pos = new BlockPos(self.getPos().getX(),Math.ceil(self.getPos().getY()),self.getPos().getZ()).down();
+        //? <1.19 {
+        /*BlockPos pos = new BlockPos(self.getPos().getX(),Math.ceil(self.getPos().getY()),self.getPos().getZ()).down();
+        *///?} else {
+        BlockPos pos = new BlockPos((int) self.getPos().getX(), (int) Math.ceil(self.getPos().getY()), (int) self.getPos().getZ()).down();
+        //?}
         Block underneath = self.world.getBlockState(pos).getBlock();
         return blockHitResult.isOf(arg)||(underneath==Blocks.AIR&& RoberCarpetSettings.OldFallingBehavior);
     }
     @Redirect(method="tick()V",at=@At(value="INVOKE",target = "Lnet/minecraft/util/math/Vec3d;multiply(DDD)Lnet/minecraft/util/math/Vec3d;",ordinal = 0))
     private Vec3d FrictionMixin(Vec3d vec,double x,double y,double z){
         FallingBlockEntity self = (FallingBlockEntity) (Object) this;
-        BlockPos pos = new BlockPos(self.getPos().getX(),Math.ceil(self.getPos().getY()),self.getPos().getZ()).down();
+        //? <1.19 {
+        /*BlockPos pos = new BlockPos(self.getPos().getX(),Math.ceil(self.getPos().getY()),self.getPos().getZ()).down();
+        *///?} else {
+        BlockPos pos = new BlockPos((int) self.getPos().getX(), (int) Math.ceil(self.getPos().getY()), (int) self.getPos().getZ()).down();
+        //?}
         Block underneath = self.world.getBlockState(pos).getBlock();
         return underneath==Blocks.AIR&&RoberCarpetSettings.FallingBlockNoFrictionWithWalls?vec:vec.multiply(x,y,z);
     }

@@ -10,7 +10,10 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 @Mixin(PlayerEntity.class)
 public abstract class SleepingDelayMixin {
-    @ModifyConstant(method = "isSleepingLongEnough",constant = @Constant(intValue = 100))
+    //? if =1.17 {
+    /*@ModifyConstant(method = "isSleepingLongEnough",constant = @Constant(intValue = 100))
+    *///?} else
+    @ModifyConstant(method = "canResetTimeBySleeping",constant = @Constant(intValue = 100))
     public int SleepingDelayMixin(int a){
         return RoberCarpetSettings.SleepingDelay;
     }

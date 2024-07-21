@@ -19,7 +19,8 @@ public class RoberCarpet implements ModInitializer, CarpetExtension {
 
 	@Override
 	public void onInitialize() {
-		FarmableClayBehavior.init();
+		//? if <1.19
+		/*FarmableClayBehavior.init();*/
 		RoberCarpet extension = new RoberCarpet();
 		CarpetServer.manageExtension(extension);
 	}
