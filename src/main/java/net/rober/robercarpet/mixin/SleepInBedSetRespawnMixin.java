@@ -16,8 +16,8 @@ import java.util.Objects;
 
 //? if <1.19.4 {
 /*import net.minecraft.text.LiteralText;
-import net.minecraft.util.registry.RegistryKey;*/
-//?} else {
+import net.minecraft.util.registry.RegistryKey;
+*///?} else {
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.text.Text;
 //?}
@@ -56,8 +56,8 @@ public abstract class SleepInBedSetRespawnMixin {
     }
     private static void send(String mes, ServerPlayerEntity player){
         //? if <1.19 {
-        /*player.sendMessage(new LiteralText(mes),false);*/
-        //?} else
+        /*player.sendMessage(new LiteralText(mes),false);
+        *///?} else
         player.sendMessage(Text.of(mes),false);
     }
 }
