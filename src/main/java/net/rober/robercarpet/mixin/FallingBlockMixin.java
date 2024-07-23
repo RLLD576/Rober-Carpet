@@ -27,7 +27,11 @@ public abstract class FallingBlockMixin {
         *///?} else {
         BlockPos pos = new BlockPos((int) self.getPos().getX(), (int) Math.ceil(self.getPos().getY()), (int) self.getPos().getZ()).down();
         //?}
-        Block underneath = self.world.getBlockState(pos).getBlock();
+        //? <1.20.6 {
+        /*Block underneath = self.world.getBlockState(pos).getBlock();
+        *///?} else {
+        Block underneath = self.getWorld().getBlockState(pos).getBlock();
+
         return blockHitResult.isOf(arg)||(underneath==Blocks.AIR&& RoberCarpetSettings.OldFallingBehavior);
     }
     @Redirect(method="tick()V",at=@At(value="INVOKE",target = "Lnet/minecraft/util/math/Vec3d;multiply(DDD)Lnet/minecraft/util/math/Vec3d;",ordinal = 0))
@@ -38,7 +42,10 @@ public abstract class FallingBlockMixin {
         *///?} else {
         BlockPos pos = new BlockPos((int) self.getPos().getX(), (int) Math.ceil(self.getPos().getY()), (int) self.getPos().getZ()).down();
         //?}
-        Block underneath = self.world.getBlockState(pos).getBlock();
+        //? <1.20.6 {
+        /*Block underneath = self.world.getBlockState(pos).getBlock();
+        *///?} else {
+        Block underneath = self.getWorld().getBlockState(pos).getBlock();
         return underneath==Blocks.AIR&&RoberCarpetSettings.FallingBlockNoFrictionWithWalls?vec:vec.multiply(x,y,z);
     }
 

@@ -19,14 +19,21 @@ public  class FarmableClayBehavior {
             @Override
             public ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
                 if(!RoberCarpetSettings.FarmableClay)return super.dispenseSilently(pointer,stack);
-                World world = pointer.getWorld();
+                //? <1.20.6 {
+                /*World world = pointer.getWorld();
+                 *///?} else {
+                World world = pointer.world();
+                //?}
                 if (world.isClient) {
                     return super.dispenseSilently(pointer, stack);
                 }
-                if (pointer.getBlockState().getBlock() != Blocks.DISPENSER) {
-                    return super.dispenseSilently(pointer,stack);
-                }
+                //? <1.20.6 {
+                /*if (pointer.getBlockState().getBlock() != Blocks.DISPENSER)return super.dispenseSilently(pointer,stack);
                 BlockPos targetPos = pointer.getPos().offset(pointer.getBlockState().get(DispenserBlock.FACING));
+                *///?} else {
+                if (world.getBlockState(pointer.pos()).getBlock() != Blocks.DISPENSER)return super.dispenseSilently(pointer,stack);
+                BlockPos targetPos = pointer.pos().offset(world.getBlockState(pointer.pos()).get(DispenserBlock.FACING));
+                //?}
                 BlockState block_state = world.getBlockState(targetPos);
                 Block block = block_state.getBlock();
                 if(block==Blocks.DIRT){
