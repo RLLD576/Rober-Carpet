@@ -31,6 +31,7 @@ public abstract class FallingBlockMixin {
         /*Block underneath = self.world.getBlockState(pos).getBlock();
         *///?} else {
         Block underneath = self.getWorld().getBlockState(pos).getBlock();
+        //? }
 
         return blockHitResult.isOf(arg)||(underneath==Blocks.AIR&& RoberCarpetSettings.OldFallingBehavior);
     }
